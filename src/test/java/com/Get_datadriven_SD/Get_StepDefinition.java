@@ -1,8 +1,11 @@
 package com.Get_datadriven_SD;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.junit.Assert;
+
+import com.lib.PropertiesOperation;
 
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
@@ -15,8 +18,9 @@ public class Get_StepDefinition {
 	Response response  = null;
 	
 	@Given("Hit the bookstore api")
-	public void hit_the_bookstore_api() {
-		response = RestAssured.get("https://demoqa.com/BookStore/v1/Books");
+	public void hit_the_bookstore_api() throws IOException {
+		String url = PropertiesOperation.getPropValue("uri");
+		response = RestAssured.get(url);
 	}
 	
 	@Then("validate as status code")
