@@ -64,7 +64,7 @@ public class AuthenticationSD {
 				.contentType("application/json; charset=UTF-8")
 				.relaxedHTTPSValidation()
 				.when()
-				.body("{\"userName\":\"Test93545\",\"password\":\"Welcome@123\"}")
+				.body("{\"userName\":\"Test1212\",\"password\":\"Welcome@123\"}")
 				.post(tokenURL);
 		System.out.println("Response = "+res.asString());
 		String token = res.body().jsonPath().getString("token");
@@ -76,15 +76,15 @@ public class AuthenticationSD {
 		
 		//Update the data
 	    JSONObject object=new JSONObject(data);
-	    object.put("userId", "52f3e7c9-a350-46c4-843a-031394c6b38e");
-	    object.put("username", "Test93545");
+	    object.put("userId", "d3a7c866-a7b0-4d85-a23f-793454ef446");
+	    object.put("username", "Test1212");
 	    String addBookStr = object.toString();
 	    System.out.println("json in after replace ==== " +addBookStr);
 	    
 	    //Add the book
 	    Response addBookRes = RestAssured
 				.given()
-				.auth().basic("Test93545", "Welcome@123")
+				.auth().basic("Test1212", "Welcome@123")
 				.header("Authorization",token)
 				.header("authorization","Basic VGVzdDkzNTQ1OldlbGNvbWVAMTIz")
 				.header("contentType","application/json; charset=UTF-8")
