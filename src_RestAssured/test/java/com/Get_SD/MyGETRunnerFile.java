@@ -10,7 +10,7 @@ import io.cucumber.junit.CucumberOptions;
 		glue={"com.Get_SD"},
 		plugin={"pretty",
 				"html:target/cucumber-htmlreport",
-				"json:target/cucumber-report1.json",
+				"json:target/cucumber-report7.json",
 		}
 		)
 public class MyGETRunnerFile {

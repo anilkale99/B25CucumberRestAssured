@@ -1,6 +1,10 @@
 package com.Get_SD;
 
+import java.io.IOException;
+
 import org.junit.Assert;
+
+import com.lib.PropertiesOperation;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -12,8 +16,9 @@ public class Get_StepDefinition {
 	Response response  = null;
 	
 	@Given("Hit the bookstore api")
-	public void hit_the_bookstore_api() {
-		response = RestAssured.get("https://demoqa.com/BookStore/v1/Books");
+	public void hit_the_bookstore_api() throws IOException {
+		String url = PropertiesOperation.getPropValue("uri");
+		response = RestAssured.get(url);
 	}
 	@Then("validate as status code")
 	public void validate_statusCod_present() {
